@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sigma</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v4.1.2/dist/aframe-extras.min.js"></script>
+</head>
+<body>
+    <a-scene>
+        <!-- Carga de modelos -->
+        <a-assets>
+            <a-asset-item id="museo2-glb" src="https://bdosantos.github.io/Sigma/museo2.glb"></a-asset-item>
+        </a-assets>
+
+        <!-- Modelo 3D del museo y objetos internos -->
+        <a-entity gltf-model="#museo2-glb" scale="0.1 0.1 0.1">
+            <!-- Luz ambiental con intensidad baja para evitar sobreiluminar las paredes -->
+            <a-light type="ambient" color="#FFFFFF" intensity="0.35"></a-light>
+
+            <!-- Cámara dentro del museo con controles de mira y controles WASD -->
+            
+          <!-- Cámara dentro del museo con controles de mira y controles WASD -->
+            <a-entity camera look-controls wasd-controls="acceleration: 150" position="80 60 100"></a-entity>
+
+            <!-- Luz direccional baja para iluminar el suelo sin afectar mucho a las paredes -->
+            <a-light type="directional" color="#FFFFFF" intensity="1" position="0 100 -300" rotation="-45 0 0"></a-light>
+
+            <!-- Luces puntuales ajustadas para iluminar el suelo dentro del museo -->
+            <a-light type="point" color="#FFFFFF" intensity="0.4" position="0 50 -500" distance="500"></a-light>
+            <a-light type="point" color="#FFFFFF" intensity="0.35" position="100 50 100" distance="400"></a-light>
+            <a-light type="point" color="#FFFFFF" intensity="0.35" position="-100 50 -100" distance="400"></a-light>
+            <a-light type="point" color="#FFFFFF" intensity="0.3" position="0 50 -200" distance="300"></a-light>
+        </a-entity>
+    </a-scene>
+</body>
+</html>
