@@ -1,38 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>phi</title>
+    <title>Sigma</title>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v4.1.2/dist/aframe-extras.min.js"></script>
 </head>
 <body>
     <a-scene>
-        <!-- Carga de modelos -->
-        <a-assets>
-            <a-asset-item id="museo2-glb" src="https://bdosantos.github.io/Sigma/museo2.glb"></a-asset-item>
-        </a-assets>
+        <!-- Código original aquí -->
 
-        <!-- Modelo 3D del museo y objetos internos -->
-        <a-entity gltf-model="#museo2-glb" scale="0.1 0.1 0.1">
-            <!-- Luz ambiental con intensidad baja para evitar sobreiluminar las paredes -->
-            <a-light type="ambient" color="#ffffff" intensity="1"></a-light>
+        <!-- Espacio cuadrado con paredes azules -->
+        <a-box position="0 0 0" rotation="0 0 0" scale="200 100 200" material-metallic="0" material-roughness="0.5" color="#0000FF"></a-box>
 
-            <!-- Cámara dentro del museo con controles de mira y controles WASD -->
-            
-          <!-- Cámara dentro del museo con controles de mira y controles WASD -->
-            <a-entity camera look-controls wasd-controls="acceleration: 400" position="80 60 100"></a-entity>
+        <!-- Luces ambiental y direccional para iluminación blanca -->
+        <a-light type="ambient" color="#777777" intensity="0.2"></a-light>
+        <a-light type="directional" type="directional" color="#FFFFFF" intensity="0.8" position="-200 100 -200" rotation="90 0 0"></a-light>
 
-            <!-- Luz direccional baja para iluminar el suelo sin afectar mucho a las paredes -->
-            <a-light type="directional" color="#FFFFFF" intensity="5" position="80 60 100" rotation="-45 0 0"></a-light>
-
-            <!-- Luces puntuales ajustadas para iluminar el suelo dentro del museo -->
-            <a-light type="point" color="#ffffff " intensity="5" position="80 100 80" distance="200"></a-light>
-            <a-light type="point" color="#ffffff" intensity="5" position="80 50 90" distance="200"></a-light>
-            <a-light type="point" color="#ffffff" intensity="5" position="80 60 85" distance="100"></a-light>
-            <a-light type="point" color="#ffffff" intensity="5" position="80 30 60" distance="240"></a-light>
-        </a-entity>
+        <!-- Resto del código original aquí -->
     </a-scene>
 </body>
 </html>
