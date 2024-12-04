@@ -12,13 +12,12 @@
         <!-- Carga de modelos -->
         <a-assets>
             <a-asset-item id="museo2-glb" src="https://bdosantos.github.io/Sigma/museo2.glb"></a-asset-item>
+            <a-asset-item id="logo_phi-glb" src="logo_phi.glb"></a-asset-item>
        </a-assets> 
-        <a-assets>
-            <a-asset-item id="logo_phi-glb"></a-asset-item>
         </a-assets> 
         <!-- Modelo 3D del museo y objetos internos -->
-        <a-entity gltf-model="#museo2-glb" scale="0.1 0.1 0.1">
-        <a-entity gltf-model="#logo_phi-glb" scale="0.1 0.1 0.1">
+        <a-entity gltf-model="#museo2-glb" scale="0.1 0.1 0.1"></a-entity>
+        <a-entity gltf-model="#logo_phi-glb" position= scale="0.1 0.1 0.1">
             <!-- Luz ambiental con intensidad baja para evitar sobreiluminar las paredes -->
             <a-light type="ambient" color="#FFFFFF" intensity="0.35"></a-light>
 
