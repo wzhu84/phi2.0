@@ -9,7 +9,7 @@
     <script src="https://cdn.jsdelivr.net/gh/deltaluca/aframe-physics-system@latest/dist/aframe-physics-system.min.js"></script>
 </head>
 <body>
-    <a-scene physics="gravity: -9.8;">
+    <a-scene physics="gravity: -9.8">
         <!-- Carga de modelos -->
         <a-assets>
             <a-asset-item id="museo2-glb" src="https://bdosantos.github.io/Sigma/museo2.glb"></a-asset-item>
@@ -21,7 +21,7 @@
             <a-asset-item id="logo_parquedelasciencias-glb" src="logo_parquedelasciencias.glb"></a-asset-item>
             <a-asset-item id="logo_comunidaddemadrid-glb" src="logo_comunidaddemadrid.glb"></a-asset-item>
             <a-asset-item id="cactus2.0-glb" src="cactus2.0.glb"></a-asset-item>
-        </a-assets> 
+        </a-assets>
 
         <!-- Modelo 3D del museo con colisión -->
         <a-entity gltf-model="#museo2-glb" scale="0.1 0.1 0.1" position="0 0 0" static-body></a-entity>
@@ -37,7 +37,7 @@
         <a-entity gltf-model="#cactus2.0-glb" position="5 2 -29" scale="1 1 1" rotation="0 0 0"></a-entity>
 
         <!-- Colisión para la cámara (envolver la cámara en un cubo invisible con colisión) -->
-        <!-- Envolver la cámara en una entidad con body físico -->
+        <!-- Envolver la cámara en una entidad con cuerpo físico -->
         <a-entity id="camera-collider" dynamic-body position="0 1 0">
             <!-- Caja invisible que funciona como el cuerpo físico de la cámara -->
             <a-box position="0 0 0" scale="1 2 1" visible="false"></a-box>
@@ -59,26 +59,27 @@
     </a-scene>
 
     <script>
-        // Agregar salto a la cámara
+        // Variables del salto
         let isJumping = false;
-        const jumpHeight = 10; // Altura del salto
+        let jumpHeight = 10; // Ajusta la altura del salto aquí
 
-        // Detectar la tecla de salto (espacio)
+        // Detecta la tecla 'espacio' para hacer el salto
         document.addEventListener('keydown', function(event) {
             if (event.code === 'Space' && !isJumping) {
                 isJumping = true;
                 const camera = document.querySelector('#camera');
-                const body = camera.components['physics-body'];
+                const body = camera.parentNode.components['dynamic-body'];
 
                 // Aplicar un impulso hacia arriba
                 body.applyForce({ x: 0, y: jumpHeight, z: 0 });
 
-                // Resetear el estado de salto después de un pequeño delay
+                // Resetear el estado de salto después de un pequeño retraso
                 setTimeout(() => {
                     isJumping = false;
-                }, 500); // 500 ms para evitar saltos múltiples rápidamente
+                }, 500); // Esto previene saltos consecutivos rápidos
             }
         });
     </script>
 </body>
 </html>
+
