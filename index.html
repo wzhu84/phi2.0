@@ -24,7 +24,10 @@
         </a-assets> 
         
         <!-- Modelo 3D del museo con colisión -->
-        <a-entity gltf-model="#museo2-glb" scale="0.1 0.1 0.1" position="0 0 0" static-body></a-entity>
+       <a-entity gltf-model="#museo2-glb" scale="0.1 0.1 0.1" position="0 0 0" static-body>
+  <a-box position="0 0 0" scale="10 10 10" visible="false" static-body></a-box>
+</a-entity>
+
 
         <!-- Otros objetos en la escena -->
         <a-entity gltf-model="#logo_phi-glb" position="36.1 12 -12.8" scale="2.5 1.75 1.75" rotation="90 0 90"></a-entity>
