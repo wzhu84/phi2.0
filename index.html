@@ -57,29 +57,6 @@
         <a-light type="point" color="#FFFFFF" intensity="0.35" position="-100 50 -100" distance="400"></a-light>
         <a-light type="point" color="#FFFFFF" intensity="0.3" position="0 50 -200" distance="300"></a-light>
     </a-scene>
-
-    <script>
-        // Variables del salto
-        let isJumping = false;
-        let jumpHeight = 10; // Ajusta la altura del salto aquí
-
-        // Detecta la tecla 'espacio' para hacer el salto
-        document.addEventListener('keydown', function(event) {
-            if (event.code === 'Space' && !isJumping) {
-                isJumping = true;
-                const camera = document.querySelector('#camera');
-                const body = camera.parentNode.components['dynamic-body'];
-
-                // Aplicar un impulso hacia arriba
-                body.applyForce({ x: 0, y: jumpHeight, z: 0 });
-
-                // Resetear el estado de salto después de un pequeño retraso
-                setTimeout(() => {
-                    isJumping = false;
-                }, 500); // Esto previene saltos consecutivos rápidos
-            }
-        });
-    </script>
 </body>
 </html>
 
